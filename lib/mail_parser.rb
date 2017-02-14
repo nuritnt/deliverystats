@@ -1,37 +1,39 @@
 require 'mail'
-require 'pry'
 
 class MailParser
   def self.parse(email)
     email_string = Mail.read(email).body.parts.first.raw_source
-    # email_array = email_string.split("\n")
+      clean_string = CGI.unescape(email_string.gsub('> ', '').gsub("\r", '').gsub("\t", '').gsub("=", '%'))
 
       # clean up the email_string
-      .strip
-      email_string.gsub('> ', '').gsub("\n", '').gsub("\r", '').gsub("\t", '').gsub("\", '')
-      CGI
+      email_array = clean_string.split("\n").map(&:strip)
 
       # get kundeninformation with index
-      kundeninformation_index = email_array.index("> Kundeninformation\r")
-      name = email_array('kundeninformation_index') + 1
-      street = email_array('kundeninformation_index') + 3
-      zip = email_array('kundeninformation_index') + 4
+      kundeninformation_index = email_array.index("Kundeninformation")
+      name = email_array[kundeninformation_index + 1]
+      street = email_array[kundeninformation_index + 3]
+      zip = email_array[kundeninformation_index + 4]
 
       # get total with index
-      total_index = email_array.index("> Total in CHF\r")
-      total = email_array('total_index') + 1
+      total_index = email_array.index("Total in CHF")
+      total = email_array[total_index + 1]
 
       # get wind and time with index
-      date_and_time_index = email_array.index("> Bestelldatum\r")+1
-      date_and_time_in_array = date_and_time_in_array.split(' ')
-      date = date_and_time_in_array[1]
-      window = date_and_time_in_array[2]
+      daytime_string = email_array[email_array.index("Bestelldatum") + 1 ]
+      daytime_array = daytime_string.split(' ')
+      date = daytime_array[1]
+      window = daytime_array[2]
 
-
+      customer_hash = {
+        date: date,
+        window: window,
+        name: name,
+        street: street,
+        zip: zip,
+        total: total,
+      }
   end
 end
 
-puts MailParser.parse('test/fixtures/email_1.eml')
 
-# array[array.index("> Kundeninformation")+
-# clean up the eml file, checl CGI &gsub
+# CGI (AT THE END!)
