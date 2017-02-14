@@ -18,6 +18,6 @@ class MailParserTest < Minitest::Test
         total: '53,00',
       }
 
-      assert_equal customer_hash, MailParser.parse('email.eml')
+      assert_equal customer_hash, MailParser.parse('test/email.eml')
     end
 end
