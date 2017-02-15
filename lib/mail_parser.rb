@@ -25,3 +25,6 @@ class MailParser
     CGI.unescape(string.gsub('> ', '').gsub("\r", '').gsub("\t", '').gsub("=", '%'))
   end
 end
+
+
+Kundeninformation = Customer information
