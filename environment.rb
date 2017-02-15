@@ -5,7 +5,7 @@ Dir.glob('./lib/*.rb').each do |file|
   require file
 end
 
-Dir.glob(folder +"/*.rb").each do |file|
+Dir.glob("./db/migrations/*.rb").each do |file|
     require file
   end
 end

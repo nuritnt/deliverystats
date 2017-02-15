@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'mail'
 gem 'activerecord'
 gem 'sqlite3'
+gem 'rake'
 
 # Testing
 gem 'minitest', '~> 5.4'
