@@ -30,7 +30,7 @@ namespace :db do
         customer_name: parsed_email[:name],
         street: parsed_email[:street],
         zip: parsed_email[:zip],
-        total: parsed_email[:total],
+        total: parsed_email[:total]
       )
     end
   end
