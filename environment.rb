@@ -8,7 +8,6 @@ end
 Dir.glob("./db/migrations/*.rb").each do |file|
     require file
   end
-end
 
 # tells AR what db file to use
 ActiveRecord::Base.establish_connection(
