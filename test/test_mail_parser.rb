@@ -8,7 +8,7 @@ Minitest::Reporters.use!
 require_relative '../lib/mail_parser'
 
 class MailParserTest < Minitest::Test
-    def test_email_1
+    def test_parse_mail_german
       customer_hash = {
         date: '23.01.17',
         window: '19:00-19:30',
@@ -17,11 +17,10 @@ class MailParserTest < Minitest::Test
         zip: '8002',
         total: '53,00'
       }
-
       assert_equal customer_hash, MailParser.parse('test/fixtures/email_1.eml')
     end
 
-    def test_email_2
+    def test_parse_mail_english
       customer_hash = {
         date: '12.02.17',
         window: '19:00-19:30',
@@ -30,8 +29,66 @@ class MailParserTest < Minitest::Test
         zip: '8004',
         total: '59.20'
       }
-
       assert_equal customer_hash, MailParser.parse('test/fixtures/email_2.eml')
     end
 
+    def test_parse_mail_3
+      customer_hash = {
+        date: '12.02.17',
+        window: '20:00-20:30',
+        name: 'SERGIO GARCIA',
+        street: 'DUFOURSTRASSE 81',
+        zip: '8008',
+        total: '49.60'
+      }
+      assert_equal customer_hash, MailParser.parse('test/fixtures/email_3.eml')
+    end
+
+    def test_parse_mail_4
+      customer_hash = {
+        date: '12.02.17',
+        window: '19:30-20:00',
+        name: 'Mirco Tieppo',
+        street: 'Edenstrasse 5',
+        zip: '8045',
+        total: '43,40'
+      }
+      assert_equal customer_hash, MailParser.parse('test/fixtures/email_4.eml')
+    end
+
+    def test_parse_mail_5
+      customer_hash = {
+        date: '12.02.17',
+        window: '19:30-20:00',
+        name: 'Andreas Bingisser',
+        street: 'Birmensdorferstrasse 391',
+        zip: '8055',
+        total: '111,00'
+      }
+      assert_equal customer_hash, MailParser.parse('test/fixtures/email_5.eml')
+    end
+
+    def test_parse_mail_6
+      customer_hash = {
+        date: '12.02.17',
+        window: '19:00-19:30',
+        name: 'David Shilling',
+        street: 'Grubenstrasse 15',
+        zip: '8045',
+        total: '57,60'
+      }
+      assert_equal customer_hash, MailParser.parse('test/fixtures/email_6.eml')
+    end
+
+    def test_parse_mail_7
+      customer_hash = {
+        date: '12.02.17',
+        window: '18:30-19:00',
+        name: 'Alexander Schütz',
+        street: 'Wengistrasse 4',
+        zip: '8004',
+        total: '55,10'
+      }
+      assert_equal customer_hash, MailParser.parse('test/fixtures/email_7.eml')
+    end
 end
