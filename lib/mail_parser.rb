@@ -26,4 +26,4 @@ class MailParser
 end
 
 
-# Kundeninformation = Customer information
+# refactor gsub method
