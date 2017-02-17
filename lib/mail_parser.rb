@@ -9,9 +9,11 @@ class MailParser
     total_index = data.index("Total in CHF")
     time_index = data.index("Bestelldatum") || data.index("Order date")
     time_array = data.at(time_index + 1).split(' ')
+    window_array = time_array[2].split('-')
     customer_hash = {
       date: time_array[1],
-      window: time_array[2],
+      time_start: window_array[0],
+      time_end: window_array[1],
       name: data.at(notes_index - 4),
       street: data.at(notes_index - 2),
       zip: data.at(notes_index - 1),

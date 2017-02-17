@@ -11,7 +11,8 @@ class MailParserTest < Minitest::Test
     def test_parse_mail_german
       customer_hash = {
         date: '23.01.17',
-        window: '19:00-19:30',
+        time_start:'19:00',
+        time_end:'19:30',
         name: 'Christine Mika',
         street: 'Bürglistrasse 26',
         zip: '8002',
@@ -23,7 +24,8 @@ class MailParserTest < Minitest::Test
     def test_parse_mail_english
       customer_hash = {
         date: '12.02.17',
-        window: '19:00-19:30',
+        time_start:'19:00',
+        time_end:'19:30',
         name: 'Mona Moschko',
         street: 'Sihlhallenstrasse 11',
         zip: '8004',
@@ -35,7 +37,8 @@ class MailParserTest < Minitest::Test
     def test_parse_mail_3
       customer_hash = {
         date: '12.02.17',
-        window: '20:00-20:30',
+        time_start:'20:00',
+        time_end:'20:30',
         name: 'SERGIO GARCIA',
         street: 'DUFOURSTRASSE 81',
         zip: '8008',
@@ -47,7 +50,8 @@ class MailParserTest < Minitest::Test
     def test_parse_mail_4
       customer_hash = {
         date: '12.02.17',
-        window: '19:30-20:00',
+        time_start:'19:30',
+        time_end:'20:00',
         name: 'Mirco Tieppo',
         street: 'Edenstrasse 5',
         zip: '8045',
@@ -59,7 +63,8 @@ class MailParserTest < Minitest::Test
     def test_parse_mail_5
       customer_hash = {
         date: '12.02.17',
-        window: '19:30-20:00',
+        time_start:'19:30',
+        time_end:'20:00',
         name: 'Andreas Bingisser',
         street: 'Birmensdorferstrasse 391',
         zip: '8055',
@@ -71,7 +76,8 @@ class MailParserTest < Minitest::Test
     def test_parse_mail_6
       customer_hash = {
         date: '12.02.17',
-        window: '19:00-19:30',
+        time_start:'19:00',
+        time_end:'19:30',
         name: 'David Shilling',
         street: 'Grubenstrasse 15',
         zip: '8045',
@@ -83,7 +89,8 @@ class MailParserTest < Minitest::Test
     def test_parse_mail_7
       customer_hash = {
         date: '12.02.17',
-        window: '18:30-19:00',
+        time_start:'18:30',
+        time_end:'19:00',
         name: 'Alexander Schütz',
         street: 'Wengistrasse 4',
         zip: '8004',
