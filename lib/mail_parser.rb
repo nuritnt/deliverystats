@@ -10,6 +10,9 @@ class MailParser
     time_index = data.index("Bestelldatum") || data.index("Order date")
     time_array = data.at(time_index + 1).split(' ')
     window_array = time_array[2].split('-')
+
+    time = Time.new
+    time.strftime("%H:%M:%S")
     customer_hash = {
       date: time_array[1],
       time_start: window_array[0],

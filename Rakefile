@@ -26,7 +26,8 @@ namespace :db do
 
       Order.find_or_create_by(
         date: parsed_email[:date],
-        time_window: parsed_email[:window],
+        time_start: parsed_email[:time_start],
+        time_end: parsed_email[:time_end],
         customer_name: parsed_email[:name],
         street: parsed_email[:street],
         zip: parsed_email[:zip],

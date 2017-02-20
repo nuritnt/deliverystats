@@ -9,12 +9,12 @@ class CreateOrdersTable < ActiveRecord::Migration
 
         t.date :date
         t.string :total
-        t.string :time_window
+        t.string :time_start
+        t.string :time_end
+
 
         # TODO Split up these fields
         # t.float :total
-        # t.time :time_start (choose a good explaining name for "time")
-        # t.time :time_end
         # t.date :date
       end
     end
